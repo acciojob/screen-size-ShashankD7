@@ -1,16 +1,39 @@
 <!DOCTYPE html>
-
 <html>
-
 <head>
-	<link rel="stylesheet" href="styles.css">
+  <title>Window Size</title>
+  
 </head>
-
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+  <h1 id="windowSize"></h1>
 
+  <script>
+    // Function to get window dimensions
+    function getWindowDimensions() {
+      var width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+      var height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+      return { width: width, height: height };
+    }
+
+    // Function to update the window size on the web page
+    function updateWindowSize() {
+      var dimensions = getWindowDimensions();
+      var width = dimensions.width;
+      var height = dimensions.height;
+
+      document.getElementById('windowSize').textContent = 'Width: ' + width + ' and ' + 'Height: ' + height;
+    }
+
+    // Function to handle window resize event
+    function handleWindowResize() {
+      updateWindowSize();
+    }
+
+    // Attach the event listener
+    window.addEventListener('resize', handleWindowResize);
+
+    // Initial dimensions
+    updateWindowSize();
+  </script>
 </body>
-
 </html>
